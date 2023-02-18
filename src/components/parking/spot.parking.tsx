@@ -29,13 +29,15 @@ const SpotParking = ({
   const saveHistory = (includesSpot: boolean, spot: number) => {
     const history = localStorage.getItem("historico");
     const date = new Date();
-    const newHistory = history ? JSON.parse(history) : [];
-
-    newHistory.push({
-      vaga: spot,
-      data: date.toLocaleString(),
-      status: includesSpot ? "Liberada" : "Ocupada",
-    });
+    const newHistory = [
+      ...(history ? JSON.parse(history) : []),
+      {
+        date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
+        time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+        spot: spot,
+        status: includesSpot ? "Liberada" : "Ocupada",
+      },
+    ];
 
     localStorage.setItem("historico", JSON.stringify(newHistory));
   };

@@ -8,7 +8,6 @@ const History = () => {
     const history = localStorage.getItem("historico");
     const newHistory = history ? JSON.parse(history) : {};
 
-    console.log(newHistory);
     setHistory(newHistory);
   }, []);
 
@@ -22,16 +21,29 @@ const History = () => {
       </Head>
       <div className="container">
         <h1>Histórico</h1>
-        {history?.map(
-          (item: { data: string; vaga: number; status: string }, k) => {
-            return (
-              <div key={k}>
-                <p>
-                  {item.data}: Vaga {item.vaga} foi {item.status}
-                </p>
-              </div>
-            );
-          }
+
+        {history.length > 0 ? (
+          history.map(
+            (
+              item: {
+                date: string;
+                time: string;
+                spot: number;
+                status: string;
+              },
+              k
+            ) => {
+              return (
+                <ul key={k}>
+                  <li>
+                    {item.date} {item.time}: Vaga {item.spot} foi {item.status}
+                  </li>
+                </ul>
+              );
+            }
+          )
+        ) : (
+          <h2>Não há histórico</h2>
         )}
       </div>
     </>
