@@ -1,10 +1,15 @@
+import Button from "@/components/button.component";
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+
     const quantity = document.getElementById("quantity") as HTMLInputElement;
-    localStorage.setItem("vagas", quantity.value);
+    quantity.value &&
+      Number(quantity.value) > 0 &&
+      localStorage.setItem("vagas", quantity.value);
   };
 
   return (
@@ -17,18 +22,17 @@ export default function Home() {
       </Head>
       <main className="container">
         <div className="logo-flex">
-          <h1>LOGO</h1>
-        </div>
-        <div className="form-flex">
-          <form>
-            <label htmlFor="quantity">
-              Digite quantas vagas o estacionamento tem:
-            </label>
-            <input type="number" id="quantity" />
-            <button onClick={(e) => handleSubmit(e)} type="submit">
-              Enviar
-            </button>
-          </form>
+          <div className="form-flex">
+            <form>
+              <label htmlFor="quantity">
+                Digite quantas vagas o estacionamento tem:
+              </label>
+              <input type="number" id="quantity" />
+              <Button onClick={(e) => handleSubmit(e)} type="submit">
+                Enviar
+              </Button>
+            </form>
+          </div>
         </div>
       </main>
     </>

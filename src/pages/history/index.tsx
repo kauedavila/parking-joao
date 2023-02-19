@@ -1,3 +1,4 @@
+import Button from "@/components/button.component";
 import DataHistory from "@/components/history/data.history";
 import Head from "next/head";
 import { useEffect, useState } from "react";
@@ -22,22 +23,22 @@ const History = () => {
     const confirmCheck = confirm(
       `Você está prestes a limpar o histórico. Deseja continuar?`
     );
-    confirmCheck && localStorage.setItem("historico", JSON.stringify([]));
-    setHistory([]);
+    confirmCheck &&
+      (localStorage.setItem("historico", JSON.stringify([])), setHistory([]));
   };
 
   return (
     <>
       <Head>
-        <title>Histórico</title>
+        <title>Entrada e Saída</title>
         <meta name="description" content="Gerencie o histórico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container ">
         <div className="flex-between">
-          <h1>Histórico</h1>
-          <button onClick={handleCleanHistory}>Limpar Histórico</button>
+          <h1>Entrada e Saída</h1>
+          <Button onClick={handleCleanHistory}>Limpar Histórico</Button>
         </div>
         <DataHistory history={history} />
       </div>

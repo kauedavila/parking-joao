@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background: #fcfdfe;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -16,6 +17,7 @@ body {
 
 .logo-flex {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
@@ -25,7 +27,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  width: 20%;
 }
 
 .form-flex form {
@@ -36,11 +38,12 @@ body {
 
 .form-flex form input {
   font-size: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 4rem;
-  padding: 5px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  outline-color: #8c50fa;
 }
 
 .form-flex form label {
@@ -123,4 +126,32 @@ body {
 
 .navigation ul li a:hover {
   color: #ccc;
+}
+
+.button-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #8c50fa;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #fff;
+  text-decoration: none;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.button-component:hover {
+  background: #6a3db1;
+  color: #ccc;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 80vw;
+  }
 }
