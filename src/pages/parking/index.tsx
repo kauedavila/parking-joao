@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 
 const Parking = () => {
   const [takenSpots, setTakenSpots] = useState<Number[]>([]);
+  const [spots, setSpots] = useState(0);
 
   useEffect(() => {
-    const spots = localStorage.getItem("vagas_ocupadas");
-    spots && setTakenSpots(JSON.parse(spots));
-  }, []);
+    const checkSpots = localStorage.getItem("vagas_ocupadas");
+    checkSpots && setTakenSpots(JSON.parse(checkSpots));
 
-  const spots = 25;
+    const countSpots = localStorage.getItem("vagas");
+    countSpots && setSpots(JSON.parse(countSpots));
+  }, []);
 
   const handleCleanSpots = () => {
     const confirmCheck = confirm(

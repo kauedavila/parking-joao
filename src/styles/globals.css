@@ -84,7 +84,7 @@ body {
 }
 
 .history-list {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 75vh;
 }
 
@@ -101,9 +101,10 @@ body {
 
 .navigation {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background: #8c50fa;
+  height: 5rem;
 }
 
 .navigation ul {
@@ -114,12 +115,8 @@ body {
   gap: 1rem;
 }
 
-.navigation ul li {
-  font-size: 1.5rem;
-  text-decoration: none;
-}
-
 .navigation ul li a {
+  font-size: 1.5rem;
   color: #fff;
   text-decoration: none;
 }

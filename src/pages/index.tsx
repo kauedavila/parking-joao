@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 export default function Home() {
-  //save number to local storage
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     const quantity = document.getElementById("quantity") as HTMLInputElement;

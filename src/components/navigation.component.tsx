@@ -22,7 +22,7 @@ const Navigation = () => {
           return (
             <li key={k}>
               <Link href={item.path}>
-                <p>{item.name}</p>
+                <div>{item.name}</div>
               </Link>
             </li>
           );
