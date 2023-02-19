@@ -1,15 +1,30 @@
+import DataHistory from "@/components/history/data.history";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 const History = () => {
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState([
+    {
+      date: "",
+      time: "",
+      spot: 0,
+      status: "",
+    },
+  ]);
 
   useEffect(() => {
     const history = localStorage.getItem("historico");
     const newHistory = history ? JSON.parse(history) : {};
-
     setHistory(newHistory);
   }, []);
+
+  const handleCleanHistory = () => {
+    const confirmCheck = confirm(
+      `Você está prestes a limpar o histórico. Deseja continuar?`
+    );
+    confirmCheck && localStorage.setItem("historico", JSON.stringify([]));
+    setHistory([]);
+  };
 
   return (
     <>
@@ -19,32 +34,12 @@ const History = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container">
-        <h1>Histórico</h1>
-
-        {history.length > 0 ? (
-          history.map(
-            (
-              item: {
-                date: string;
-                time: string;
-                spot: number;
-                status: string;
-              },
-              k
-            ) => {
-              return (
-                <ul key={k}>
-                  <li>
-                    {item.date} {item.time}: Vaga {item.spot} foi {item.status}
-                  </li>
-                </ul>
-              );
-            }
-          )
-        ) : (
-          <h2>Não há histórico</h2>
-        )}
+      <div className="container ">
+        <div className="flex-between">
+          <h1>Histórico</h1>
+          <button onClick={handleCleanHistory}>Limpar Histórico</button>
+        </div>
+        <DataHistory history={history} />
       </div>
     </>
   );

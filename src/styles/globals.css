@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #1f1f1f;
+  background: #fcfdfe;
 }
 
 .container {
@@ -11,8 +11,7 @@ body {
   max-width: 1200px;
   margin: 4vh auto;
   padding: 0 20px;
-  border: 1px solid #ccc;
-  background: #f1f1f1;
+  padding-bottom: 10px;
 }
 
 .logo-flex {
@@ -82,4 +81,49 @@ body {
 .parking-spot span {
   font-size: 2rem;
   padding: 10px;
+}
+
+.history-list {
+  overflow-y: scroll;
+  height: 75vh;
+}
+
+.history-date {
+  font-weight: bold;
+  color: blue;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #8c50fa;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navigation ul li {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navigation ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation ul li a:hover {
+  color: #ccc;
 }
