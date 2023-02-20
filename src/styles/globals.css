@@ -3,6 +3,7 @@ body {
   padding: 0;
   background: #fcfdfe;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 * {
@@ -56,6 +57,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
+  gap: 1rem;
 }
 
 .parking-space {
