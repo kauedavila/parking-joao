@@ -31,7 +31,7 @@ const SpotParking = ({ spot, takenSpots, setTakenSpots }: SpotParkingProps) => {
       ...(history ? JSON.parse(history) : []),
       {
         date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
-        time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+        time: `${date.getHours()}:${date.getMinutes()}`,
         spot: spot,
         status: includesSpot ? "Liberada" : "Ocupada",
       },
