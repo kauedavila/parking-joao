@@ -7,9 +7,11 @@ export default function Home() {
 
     const quantity = document.getElementById("quantity") as HTMLInputElement;
     quantity.value &&
-      Number(quantity.value) > 0 &&
-      Number(quantity.value) < 1000 &&
-      localStorage.setItem("vagas", quantity.value);
+    Number(quantity.value) > 0 &&
+    Number(quantity.value) < 1000
+      ? (alert("Vagas cadastradas com sucesso!"),
+        localStorage.setItem("vagas", quantity.value))
+      : alert("O número de vagas deve ser maior que 0 e menor que 1000.");
   };
 
   return (
