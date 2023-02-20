@@ -35,12 +35,15 @@ const Navigation = () => {
                   }`}
                 >
                   <Image
-                    src={`/${item.icon}.svg`}
+                    src={
+                      item.path === asPath
+                        ? `/${item.icon}_active.svg`
+                        : `/${item.icon}.svg`
+                    }
                     width={20}
                     height={20}
                     alt={item.name}
                   />
-
                   <p>{item.name}</p>
                 </div>
               </Link>

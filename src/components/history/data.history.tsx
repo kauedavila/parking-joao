@@ -17,15 +17,7 @@ const DataHistory = ({ history }: DataHistoryProps) => {
           return (
             <ul key={k}>
               <li>
-                <span
-                  className={`${
-                    k === 0 || history[k - 1].date !== item.date
-                      ? "history-date"
-                      : ""
-                  }`}
-                >
-                  {item.date}{" "}
-                </span>
+                <span>{item.date} </span>
                 {item.time}: Vaga {item.spot} foi {item.status}
               </li>
             </ul>
