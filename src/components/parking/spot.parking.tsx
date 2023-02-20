@@ -20,10 +20,14 @@ const SpotParking = ({
       } a [Vaga ${spot}]. Deseja continuar?`
     );
 
-    confirmCheck &&
-      (saveHistory(includesSpot, spot),
+    const plateCheck =
+      confirmCheck &&
+      !includesSpot &&
+      prompt(`Digite a placa do veículo que está entrando na Vaga ${spot}: `);
+
+    saveHistory(includesSpot, spot),
       localStorage.setItem("vagas_ocupadas", JSON.stringify(newArray)),
-      setTakenSpots(newArray));
+      setTakenSpots(newArray);
   };
 
   const saveHistory = (includesSpot: boolean, spot: number) => {

@@ -63,7 +63,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
   border-radius: 5px;
   aspect-ratio: 1 / 1;
   height: 5rem;
@@ -125,7 +124,13 @@ body {
 }
 
 .navigation ul li a:hover {
+  transition: 0.15s;
+
   color: #ccc;
+}
+
+.navi-active {
+  color: #1f1f1f;
 }
 
 .button-component {
