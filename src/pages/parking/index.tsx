@@ -12,7 +12,7 @@ const Parking = () => {
     checkSpots && setTakenSpots(JSON.parse(checkSpots));
 
     const countSpots = localStorage.getItem("vagas");
-    countSpots && setSpots(JSON.parse(countSpots));
+    countSpots ? setSpots(JSON.parse(countSpots)) : setSpots(10);
   }, []);
 
   const handleCleanSpots = () => {
@@ -36,7 +36,7 @@ const Parking = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container">
-        <div className="flex-between">
+        <div className="page-title">
           <h1>Estacionamento</h1>
           <Button onClick={handleCleanSpots}>Limpar Estacionamento</Button>
         </div>

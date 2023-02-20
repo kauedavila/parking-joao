@@ -36,7 +36,7 @@ const History = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container ">
-        <div className="flex-between">
+        <div className="page-title">
           <h1>Entrada e Saída</h1>
           <Button onClick={handleCleanHistory}>Limpar Histórico</Button>
         </div>

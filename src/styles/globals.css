@@ -5,6 +5,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
 .container {
   width: 90vw;
   min-height: 90vh;
@@ -15,14 +19,6 @@ body {
   padding-bottom: 10px;
 }
 
-.logo-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-}
-
 .form-flex {
   display: flex;
   justify-content: center;
@@ -30,25 +26,36 @@ body {
   width: 20%;
 }
 
-.form-flex form {
+.form-flex {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.form-flex form input {
+.form-flex input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
   padding: 0.25rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline-color: #8c50fa;
+  width: 15%;
 }
 
-.form-flex form label {
+.form-flex label {
   text-align: center;
   font-size: 2rem;
+}
+
+.form-flex div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
 }
 
 .parking-space {
@@ -71,6 +78,7 @@ body {
 }
 
 .parking-spot:hover {
+  transition: 0.15s;
   background: #40826d;
   color: #fff;
 }
@@ -95,25 +103,40 @@ body {
   color: blue;
 }
 
-.flex-between {
+.page-title {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .page-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .navigation {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   background: #8c50fa;
+  padding: 0 1rem;
   height: 5rem;
+  width: 100%;
 }
 
 .navigation ul {
   display: flex;
   list-style: none;
-  justify-content: center;
+  inline-size: 0;
+  justify-content: space-around;
   align-items: center;
+  width: 100%;
   gap: 1rem;
 }
 
@@ -125,12 +148,35 @@ body {
 
 .navigation ul li a:hover {
   transition: 0.15s;
-
   color: #ccc;
+}
+
+.navigation ul li p {
+  display: none;
+}
+@media (min-width: 640px) {
+  .navigation ul li p {
+    display: block;
+  }
+
+  .navigation ul {
+    justify-content: flex-start;
+  }
+
+  .navigation {
+    justify-content: flex-start;
+  }
 }
 
 .navi-active {
   color: #1f1f1f;
+}
+
+.navi-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .button-component {
@@ -151,12 +197,7 @@ body {
 }
 
 .button-component:hover {
+  transition: 0.15s;
   background: #6a3db1;
   color: #ccc;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    width: 80vw;
-  }
 }

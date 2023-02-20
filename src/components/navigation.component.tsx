@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -8,14 +9,17 @@ const Navigation = () => {
     {
       name: "Home",
       path: "/",
+      icon: "home",
     },
     {
       name: "Estacionamento",
       path: "/parking",
+      icon: "parking",
     },
     {
       name: "Histórico",
       path: "/history",
+      icon: "history",
     },
   ];
   return (
@@ -25,8 +29,19 @@ const Navigation = () => {
           return (
             <li key={k}>
               <Link href={item.path}>
-                <div className={`${item.path === asPath ? "navi-active" : ""}`}>
-                  {item.name}
+                <div
+                  className={`navi-flex ${
+                    item.path === asPath ? "navi-active" : ""
+                  }`}
+                >
+                  <Image
+                    src={`/${item.icon}.svg`}
+                    width={20}
+                    height={20}
+                    alt={item.name}
+                  />
+
+                  <p>{item.name}</p>
                 </div>
               </Link>
             </li>

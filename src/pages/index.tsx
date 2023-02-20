@@ -1,6 +1,5 @@
 import Button from "@/components/button.component";
 import Head from "next/head";
-import Image from "next/image";
 
 export default function Home() {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -9,6 +8,7 @@ export default function Home() {
     const quantity = document.getElementById("quantity") as HTMLInputElement;
     quantity.value &&
       Number(quantity.value) > 0 &&
+      Number(quantity.value) < 1000 &&
       localStorage.setItem("vagas", quantity.value);
   };
 
@@ -20,19 +20,26 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container">
-        <div className="logo-flex">
-          <div className="form-flex">
-            <form>
-              <label htmlFor="quantity">
-                Digite quantas vagas o estacionamento tem:
-              </label>
+      <main className="container ">
+        <div>
+          <div className="page-title">
+            <h1>Página Principal</h1>
+          </div>
+          <form className="form-flex">
+            <label htmlFor="quantity">
+              Digite quantas vagas o estacionamento tem:
+            </label>
+            <p>
+              <strong>Obs:</strong> O número de vagas deve ser maior que 0 e
+              menor que 1000.
+            </p>
+            <div>
               <input type="number" id="quantity" />
               <Button onClick={(e) => handleSubmit(e)} type="submit">
                 Enviar
               </Button>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </main>
     </>
