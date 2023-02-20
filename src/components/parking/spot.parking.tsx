@@ -1,12 +1,10 @@
-const SpotParking = ({
-  spot,
-  takenSpots,
-  setTakenSpots,
-}: {
+interface SpotParkingProps {
   spot: number;
   takenSpots: Number[];
   setTakenSpots: (value: Number[]) => void;
-}) => {
+}
+
+const SpotParking = ({ spot, takenSpots, setTakenSpots }: SpotParkingProps) => {
   const handleClick = () => {
     const includesSpot = takenSpots.includes(spot);
 
@@ -20,12 +18,7 @@ const SpotParking = ({
       } a [Vaga ${spot}]. Deseja continuar?`
     );
 
-    const plateCheck =
-      confirmCheck &&
-      !includesSpot &&
-      prompt(`Digite a placa do veículo que está entrando na Vaga ${spot}: `);
-
-    saveHistory(includesSpot, spot),
+    confirmCheck && saveHistory(includesSpot, spot),
       localStorage.setItem("vagas_ocupadas", JSON.stringify(newArray)),
       setTakenSpots(newArray);
   };

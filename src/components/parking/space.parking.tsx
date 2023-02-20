@@ -1,14 +1,16 @@
 import SpotParking from "./spot.parking";
 
+interface SpaceParkingProps {
+  spots: number;
+  takenSpots: Number[];
+  setTakenSpots: (value: Number[]) => void;
+}
+
 const SpaceParking = ({
   spots,
   takenSpots,
   setTakenSpots,
-}: {
-  spots: number;
-  takenSpots: Number[];
-  setTakenSpots: (value: Number[]) => void;
-}) => {
+}: SpaceParkingProps) => {
   return (
     <div className="parking-space">
       {Array.from({ length: spots }, (_, i) => (
