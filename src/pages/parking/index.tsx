@@ -13,6 +13,9 @@ const Parking = () => {
 
     const countSpots = localStorage.getItem("vagas");
     countSpots ? setSpots(JSON.parse(countSpots)) : setSpots(10);
+    countSpots &&
+      (Number(countSpots) < 0 || Number(countSpots) > 1000) &&
+      setSpots(10);
   }, []);
 
   const handleCleanSpots = () => {
